@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 background-custom">
     <div>
         {{ $logo }}
     </div>
@@ -7,3 +7,8 @@
         {{ $slot }}
     </div>
 </div>
+<style>
+    .background-custom{
+        background: #16697a !important;
+    }
+</style>
