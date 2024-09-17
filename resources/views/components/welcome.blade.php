@@ -14,7 +14,7 @@ License: For each use you must have a valid license purchased only from above li
 	<!--begin::Head-->
     <head>
         <base href="">
-        <title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel by Keenthemes</title>
+        <title>dashboard</title>
         <meta charset="utf-8" />
         <meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
         <meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dark mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
@@ -4488,7 +4488,7 @@ License: For each use you must have a valid license purchased only from above li
 																</span>
 																<!--end::Svg Icon-->
 															</span>
-															<span class="menu-title">Components</span>
+															<span class="menu-title">Componentes</span>
 														</a>
 													</div>
 													<div class="menu-item">
@@ -8528,7 +8528,7 @@ License: For each use you must have a valid license purchased only from above li
 																			<a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">New Users</a>
 																			<span class="text-muted fw-bold d-block">Awesome Users</span>
 																		</td>
-																		<td class="text-end text-muted fw-bold">Laravel,Metronic</td>
+																		<td class="text-end text-muted fw-bold"></td>
 																		<td class="text-end">
 																			<span class="badge badge-light-primary">Success</span>
 																		</td>
@@ -8810,9 +8810,9 @@ License: For each use you must have a valid license purchased only from above li
 																		</td>
 																		<td>
 																			<a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">New Users</a>
-																			<span class="text-muted fw-bold d-block">Awesome Users</span>
+																			<span class="text-muted fw-bold d-block"></span>
 																		</td>
-																		<td class="text-end text-muted fw-bold">Laravel,Metronic</td>
+																		<td class="text-end text-muted fw-bold"></td>
 																		<td class="text-end">
 																			<span class="badge badge-light-primary">Success</span>
 																		</td>
@@ -8879,8 +8879,8 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Card header-->
 									<div class="card-header">
 										<h3 class="card-title align-items-start flex-column">
-											<span class="card-label fw-bolder text-dark">My Calendar</span>
-											<span class="text-muted mt-1 fw-bold fs-7">Preview monthly events</span>
+											<span class="card-label fw-bolder text-dark">Mi calendario</span>
+											<span class="text-muted mt-1 fw-bold fs-7">Vista previa de eventos mensuales</span>
 										</h3>
 										<div class="card-toolbar">
 											<a href="{{ url('/calendar') }}" class="btn btn-primary">Manage Calendar</a>
@@ -8908,7 +8908,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--begin::Modal header-->
 												<div class="modal-header">
 													<!--begin::Modal title-->
-													<h2 class="fw-bolder" data-kt-calendar="title">Add Event</h2>
+													<h2 class="fw-bolder" data-kt-calendar="title">Añadir evento</h2>
 													<!--end::Modal title-->
 													<!--begin::Close-->
 													<div class="btn btn-icon btn-sm btn-active-icon-primary" id="kt_modal_add_event_close">
@@ -8929,7 +8929,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Input group-->
 													<div class="fv-row mb-9">
 														<!--begin::Label-->
-														<label class="fs-6 fw-bold required mb-2">Event Name</label>
+														<label class="fs-6 fw-bold required mb-2">Nombre del evento</label>
 														<!--end::Label-->
 														<!--begin::Input-->
 														<input type="text" class="form-control form-control-solid" placeholder="" name="calendar_event_name" />
@@ -8939,7 +8939,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Input group-->
 													<div class="fv-row mb-9">
 														<!--begin::Label-->
-														<label class="fs-6 fw-bold mb-2">Event Description</label>
+														<label class="fs-6 fw-bold mb-2">descripcion del evento</label>
 														<!--end::Label-->
 														<!--begin::Input-->
 														<input type="text" class="form-control form-control-solid" placeholder="" name="calendar_event_description" />
@@ -8949,7 +8949,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Input group-->
 													<div class="fv-row mb-9">
 														<!--begin::Label-->
-														<label class="fs-6 fw-bold mb-2">Event Location</label>
+														<label class="fs-6 fw-bold mb-2">Lugar del evento</label>
 														<!--end::Label-->
 														<!--begin::Input-->
 														<input type="text" class="form-control form-control-solid" placeholder="" name="calendar_event_location" />
@@ -8961,7 +8961,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Checkbox-->
 														<label class="form-check form-check-custom form-check-solid">
 															<input class="form-check-input" type="checkbox" value="" id="kt_calendar_datepicker_allday" />
-															<span class="form-check-label fw-bold" for="kt_calendar_datepicker_allday">All Day</span>
+															<span class="form-check-label fw-bold" for="kt_calendar_datepicker_allday">todo el dia</span>
 														</label>
 														<!--end::Checkbox-->
 													</div>
@@ -8971,7 +8971,7 @@ License: For each use you must have a valid license purchased only from above li
 														<div class="col">
 															<div class="fv-row mb-9">
 																<!--begin::Label-->
-																<label class="fs-6 fw-bold mb-2 required">Event Start Date</label>
+																<label class="fs-6 fw-bold mb-2 required">Fecha de inicio del evento</label>
 																<!--end::Label-->
 																<!--begin::Input-->
 																<input class="form-control form-control-solid" name="calendar_event_start_date" placeholder="Pick a start date" id="kt_calendar_datepicker_start_date" />
@@ -8981,7 +8981,7 @@ License: For each use you must have a valid license purchased only from above li
 														<div class="col" data-kt-calendar="datepicker">
 															<div class="fv-row mb-9">
 																<!--begin::Label-->
-																<label class="fs-6 fw-bold mb-2">Event Start Time</label>
+																<label class="fs-6 fw-bold mb-2">"Hora de inicio del evento</label>
 																<!--end::Label-->
 																<!--begin::Input-->
 																<input class="form-control form-control-solid" name="calendar_event_start_time" placeholder="Pick a start time" id="kt_calendar_datepicker_start_time" />
@@ -8995,7 +8995,7 @@ License: For each use you must have a valid license purchased only from above li
 														<div class="col">
 															<div class="fv-row mb-9">
 																<!--begin::Label-->
-																<label class="fs-6 fw-bold mb-2 required">Event End Date</label>
+																<label class="fs-6 fw-bold mb-2 required">Fecha de finalización del evento</label>
 																<!--end::Label-->
 																<!--begin::Input-->
 																<input class="form-control form-control-solid" name="calendar_event_end_date" placeholder="Pick a end date" id="kt_calendar_datepicker_end_date" />
@@ -9005,7 +9005,7 @@ License: For each use you must have a valid license purchased only from above li
 														<div class="col" data-kt-calendar="datepicker">
 															<div class="fv-row mb-9">
 																<!--begin::Label-->
-																<label class="fs-6 fw-bold mb-2">Event End Time</label>
+																<label class="fs-6 fw-bold mb-2">Fecha de finalización del evento</label>
 																<!--end::Label-->
 																<!--begin::Input-->
 																<input class="form-control form-control-solid" name="calendar_event_end_time" placeholder="Pick a end time" id="kt_calendar_datepicker_end_time" />
@@ -9019,12 +9019,12 @@ License: For each use you must have a valid license purchased only from above li
 												<!--begin::Modal footer-->
 												<div class="modal-footer flex-center">
 													<!--begin::Button-->
-													<button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3">Cancel</button>
+													<button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3">Cancelar</button>
 													<!--end::Button-->
 													<!--begin::Button-->
 													<button type="button" id="kt_modal_add_event_submit" class="btn btn-primary">
-														<span class="indicator-label">Submit</span>
-														<span class="indicator-progress">Please wait...
+														<span class="indicator-label">Enivar</span>
+														<span class="indicator-progress">Por favor espere...
 														<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 													</button>
 													<!--end::Button-->
@@ -9124,7 +9124,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Icon-->
 													<!--begin::Event start date/time-->
 													<div class="fs-6">
-														<span class="fw-bolder">Starts</span>
+														<span class="fw-bolder">Comenzar</span>
 														<span data-kt-calendar="event_start_date"></span>
 													</div>
 													<!--end::Event start date/time-->
@@ -9143,7 +9143,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Icon-->
 													<!--begin::Event end date/time-->
 													<div class="fs-6">
-														<span class="fw-bolder">Ends</span>
+														<span class="fw-bolder">Finalizar</span>
 														<span data-kt-calendar="event_end_date"></span>
 													</div>
 													<!--end::Event end date/time-->
@@ -9185,8 +9185,8 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
 							<!--begin::Copyright-->
 							<div class="text-dark order-2 order-md-1">
-								<span class="text-muted fw-bold me-1">2022©</span>
-								<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+								<span class="text-muted fw-bold me-1"></span>
+								<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary"></a>
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Menu-->
@@ -10233,7 +10233,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Heading-->
 							<div class="mb-7">
 								<div class="d-flex flex-stack">
-									<h3 class="mb-0">Metronic Licenses</h3>
+									<h3 class="mb-0"></h3>
 									<a href="https://themeforest.net/licenses/standard" class="fw-bold" target="_blank">License FAQs</a>
 								</div>
 							</div>
@@ -10292,7 +10292,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Purchase-->
 							<!--begin::Demos-->
 							<div class="mb-0">
-								<h3 class="fw-bolder text-center mb-6">Metronic Demos</h3>
+								<h3 class="fw-bolder text-center mb-6">Demos</h3>
 								<!--begin::Row-->
 								<div class="row g-5">
 									<!--begin::Col-->
