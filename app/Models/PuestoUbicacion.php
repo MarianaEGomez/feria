@@ -9,9 +9,10 @@ class PuestoUbicacion extends Model
 {
     use HasFactory;
 
+    protected $table = 'puesto_ubicaciones';
+
     public function sectorEvento()
     {
-        return $this->belongsTo(SectorEvento::class, 'id_sector_evento');
+        return $this->belongsTo(SectorEvento::class, 'id_sector_evento', 'id_sector_evento');
     }
 }
-
