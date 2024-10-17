@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReservaController;
@@ -14,6 +15,7 @@ Route::post('/reservations/{id}/approve', [ReservaController::class, 'approve'])
 Route::post('/reservations/{id}/reject', [ReservaController::class, 'reject'])->name('reservation.reject');
 
 Route::post('/post-reservas', [ReservaController::class, 'store'])->name('reservas_post');
+Route::post('/enviar-contacto', [ContactController::class, 'enviarContacto'])->name('enviar-contacto');
 Route::get('/', function () {
     return view('welcome');
 });
