@@ -23,7 +23,6 @@
             <h1 class="mb-4">Preguntas Frecuentes</h1>
             <div class="accordion" id="faqAccordion">
 
-                <!-- Pregunta 1 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -37,7 +36,6 @@
                     </div>
                 </div>
 
-                <!-- Pregunta 2 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -51,7 +49,6 @@
                     </div>
                 </div>
 
-                <!-- Pregunta 3 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -65,7 +62,6 @@
                     </div>
                 </div>
 
-                <!-- Pregunta 4 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -79,7 +75,6 @@
                     </div>
                 </div>
 
-                <!-- Pregunta 5 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingFive">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -93,7 +88,6 @@
                     </div>
                 </div>
 
-                <!-- Pregunta 6 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingSix">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -107,7 +101,6 @@
                     </div>
                 </div>
 
-                <!-- Pregunta 7 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingSeven">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
@@ -121,7 +114,6 @@
                     </div>
                 </div>
 
-                <!-- Pregunta 8 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingEight">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
@@ -135,7 +127,6 @@
                     </div>
                 </div>
 
-                <!-- Pregunta 9 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingNine">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
@@ -148,9 +139,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Más preguntas -->
-                <!-- Continúa agregando las otras preguntas de manera similar -->
 
             </div>
         </div>

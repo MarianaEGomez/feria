@@ -14,23 +14,20 @@
             min-height: 100vh;
             color: white;
         }
-
-        /* Contenedor semitransparente */
         .content-container {
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con 80% de opacidad */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-            color: #333; /* Color del texto más oscuro para mejorar el contraste */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+            color: #333;
         }
 
-        /* Estilos para los encabezados y párrafos */
         h1, h3 {
-            color: #222; /* Encabezados más oscuros */
+            color: #222;
         }
 
         p, ul li {
-            color: #333; /* Color de texto más oscuro */
+            color: #333;
         }
     </style>
 </head>

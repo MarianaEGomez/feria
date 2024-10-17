@@ -16,15 +16,18 @@
         }
 
         .form-container {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+            color: #333;
         }
         .navbar-custom {
-        background-color: rgba(0, 0, 0, 0.6); /* Fondo negro con transparencia */
+        background-color: rgba(0, 0, 0, 0.6);
         padding: 10px;
         border-radius: 15px;
     }
+
     </style>
 </head>
 <body>
