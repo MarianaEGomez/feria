@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('puesto_ubicacions', function (Blueprint $table) {
-            $table->id();
+        Schema::create('puesto_ubicaciones', function (Blueprint $table) {
+            $table->id(); 
+            $table->integer('nro_puesto'); 
+            $table->unsignedBigInteger('id_sector_evento');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('puesto_ubicacions');
+        Schema::dropIfExists('puesto_ubicaciones');
     }
 };

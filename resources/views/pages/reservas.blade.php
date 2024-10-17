@@ -20,7 +20,6 @@
     <div class="gradient-custom d-flex flex-column min-vh-100">
         @include('layouts.navbar')
         <div class="container my-5">
-            {{-- Muestra errores de validación --}}
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -30,129 +29,123 @@
                     </ul>
                 </div>
             @endif
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+        
+            <form action="{{ route('reservas_post') }}" method="POST" class="p-4 rounded-3 shadow bg-light">
+                <h1 class="text-center mb-4">Reservar Puesto</h1>   
+                @csrf
+                    <div>
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name">
+                        @error('name') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                
+                    <div>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido">
+                        @error('apellido') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                
+                    <div>
+                        <label for="cuil">CUIL</label>
+                        <input type="text" id="cuil" name="cuil">
+                        @error('cuil') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div>
 
-                    {{-- Formulario para reservar puestos --}}
-        <form action="{{ route('reservas') }}" method="POST" class="p-4 rounded-3 shadow bg-light">
-            <h1 class="text-center mb-4">Reservar Puesto</h1>   
-            @csrf
-            <div>
-                <label for="name">Nombre</label>
-                <input type="text" id="name" wire:model="name">
-                @error('name') <span class="error">{{ $message }}</span> @enderror
-            </div>
+                    <div>
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" name="telefono">
+                        @error('telefono') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                
+                    <div>
+                        <label for="rubro">Rubro</label>
+                        <select id="rubro" name="rubro">
+                            <option value="">Seleccione un rubro</option>
+                            @foreach ($rubros as $rubro)
+                                <option value="{{ $rubro->id }}">{{ $rubro->description }}</option>
+                            @endforeach
+                        </select>
+                        @error('rubro') <span class="error">{{ $message }}</span> @enderror
+                    </div>
 
-            <div>
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" wire:model="apellido">
-                @error('apellido') <span class="error">{{ $message }}</span> @enderror
-            </div>
+                    {{-- <div>
+                        <label for="producto">producto</label>
+                        <input type="producto" id="producto" wire:model="producto">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div> --}}
 
-            <div>
-                <label for="cuil">CUIL</label>
-                <input type="text" id="cuil" wire:model="cuil">
-                @error('cuil') <span class="error">{{ $message }}</span> @enderror
-            </div>
+                    {{-- <div>
+                        <label for="pago">pagos</label>
+                        <input type="pago" id="pago" wire:model="pago">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div> --}}
 
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" wire:model="email">
-                @error('email') <span class="error">{{ $message }}</span> @enderror
-            </div>
+                    {{-- <div>
+                        <label for="medio_de_pago">medios de pago</label>
+                        <input type="medio_de_pago" id="medio_de_pago" wire:model="medio_de_pago">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div> --}}
+                    {{-- <div>
+                        <label for="reserva">reserva</label>
+                        <input type="reserva" id="reserva" wire:model="reserva">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                    <div>
+                        <label for="reservation_date">Fecha de Reserva</label>
+                        <input type="date" id="reservation_date" wire:model="reservation_date">
+                        @error('reservation_date') <span class="error">{{ $message }}</span> @enderror
+                    </div> --}}
+            
+                    <div class="mb-3">
+                        <label for="puesto_ids" class="form-label">Seleccionar Puestos</label>
+                        <select class="form-control" name="puesto_ids[]" id="puesto_ids" required>
+                            @foreach ($puestos as $puesto)
+                                <option value="{{ $puesto->id }}">
+                                    {{ $puesto->nombre }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
 
-            {{-- Select para rubro --}}
-            <div>
-                <label for="rubro">Rubro</label>
-                <select id="rubro" wire:model="rubro">
-                    <option value="">Seleccione un rubro</option>
-                    <option value="Comida">Comida</option>
-                    <option value="Bebidas">Bebidas</option>
-                    <option value="Artesanías">Artesanías</option>
-                    <option value="Ropa">Ropa</option>
-                </select>
-                @error('rubro') <span class="error">{{ $message }}</span> @enderror
-            </div>
+                    {{-- <div>
+                        <label for="puesto_ubicacion">ubicacion del puesto</label>
+                        <input type="puesto_ubicacion" id="puesto_ubicacion" wire:model="puesto_ubicacion">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                        
+                    <div>
+                        <label for="evento">evento</label>
+                        <input type="evento"id="evento"wire:model="evento">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div>
 
-            {{-- Select para producto según el rubro --}}
-            <div>
-                <label for="producto">Producto</label>
-                <select id="producto" wire:model="producto">
-                    <option value="">Seleccione un producto</option>
-                    @if($rubros == 'Comida')
-                        <option value="Empanadas">Empanadas</option>
-                        <option value="Pizza">Pizza</option>
-                        <option value="Hamburguesas">Hamburguesas</option>
-                    @elseif($rubros == 'Bebidas')
-                        <option value="Gaseosas">Gaseosas</option>
-                        <option value="Cerveza">Cerveza</option>
-                        <option value="Jugos">Jugos</option>
-                    @elseif($rubros == 'Artesanías')
-                        <option value="Cuero">Cuero</option>
-                        <option value="Madera">Madera</option>
-                    @elseif($rubros == 'Ropa')
-                        <option value="Camisas">Camisas</option>
-                        <option value="Pantalones">Pantalones</option>
-                    @endif
-                </select>
-                @error('producto') <span class="error">{{ $message }}</span> @enderror
-            </div>
+                    <div>
+                        <label for="sector_evento">Sector del evento</label>
+                        <input type="sector_evento"id="sector_evento"wire:model="sector_evento">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div>
 
-            {{-- Select para medios de pago --}}
-            <div>
-                <label for="medio_de_pago">Medios de Pago</label>
-                <select id="medio_de_pago" wire:model="medio_de_pago">
-                    <option value="">Seleccione un medio de pago</option>
-                    <option value="Transferencia">Transferencia</option>
-                    <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
-                    <option value="Tarjeta de Débito">Tarjeta de Débito</option>
-                </select>
-                @error('medio_de_pago') <span class="error">{{ $message }}</span> @enderror
-            </div>
+                        <div>
+                        <label for="localidad">localidad</label>
+                        <input type="localidad"id="localidad"wire:model="localidad">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div> --}}
 
-            {{-- Select para evento --}}
-            <div>
-                <label for="evento">Evento</label>
-                <select id="evento" wire:model="evento">
-                    <option value="">Seleccione un evento</option>
-                    <option value="Fiesta de la Corvina">Fiesta de la Corvina</option>
-                    <option value="Fiesta del Pomelo">Fiesta del Pomelo</option>
-                    <option value="Fiesta del Río, Mate y Tereré">Fiesta del Río, Mate y Tereré</option>
-                </select>
-                @error('evento') <span class="error">{{ $message }}</span> @enderror
-            </div>
-
-            {{-- Select para sector del evento según el evento seleccionado --}}
-            <div>
-                <label for="sector_evento">Sector del Evento</label>
-                <select id="sector_evento" wire:model="sector_evento">
-                    <option value="">Seleccione un sector</option>
-                    @if($evento == 'Fiesta del Río, Mate y Tereré')
-                        <option value="Plaza San Martín">Plaza San Martín</option>
-                        <option value="Avenida">Avenida</option>
-                        <option value="Costanera">Costanera</option>
-                    @else
-                        <option value="Avenida">Avenida</option>
-                    @endif
-                </select>
-                @error('sector_evento') <span class="error">{{ $message }}</span> @enderror
-            </div>
-
-            {{-- Select para localidad --}}
-            <div>
-                <label for="localidad">Localidad</label>
-                <select id="localidad" wire:model="localidad">
-                    <option value="">Seleccione una localidad</option>
-                    <option value="Formosa">Formosa</option>
-                    <option value="Herradura">Herradura</option>
-                    <option value="Laguna Blanca">Laguna Blanca</option>
-                </select>
-                @error('localidad') <span class="error">{{ $message }}</span> @enderror
-            </div>
-
-            {{-- Botón para enviar el formulario --}}
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg" aria-label="Reservar puesto">Reservar</button>
-            </div>
-        </form>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg" aria-label="Reservar puesto">Reservar</button>
+                    </div>
+            </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
