@@ -1,7 +1,23 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\MapController;
 
+Route::get('/map', [MapController::class, 'showMap'])->name('map');
+Route::get('/menu', [PageController::class, 'menu'])->name('menu');
+Route::get('/reservas', [ReservaController::class, 'getPlaces'])->name('reservas');
+Route::get('/nosotros', [PageController::class, 'nosotros'])->name('nosotros');
+Route::get('/preguntas-frecuentes', [PageController::class, 'faq'])->name('faq');
+Route::get('/contactos', [PageController::class, 'contactos'])->name('contactos');
+Route::get('/reception', [PageController::class, 'reception'])->name('reception');
+Route::post('/reservations/{id}/approve', [ReservaController::class, 'approve'])->name('reservation.approve');
+Route::post('/reservations/{id}/reject', [ReservaController::class, 'reject'])->name('reservation.reject');
+
+Route::post('/post-reservas', [ReservaController::class, 'store'])->name('reservas_post');
+Route::post('/enviar-contacto', [ContactController::class, 'enviarContacto'])->name('enviar-contacto');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +34,4 @@ Route::middleware([
         return view('components-dashboard.calendar');
     });    
 });
+
