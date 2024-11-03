@@ -4,7 +4,9 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\MapController;
 
+Route::get('/map', [MapController::class, 'showMap'])->name('map');
 Route::get('/menu', [PageController::class, 'menu'])->name('menu');
 Route::get('/reservas', [ReservaController::class, 'getPlaces'])->name('reservas');
 Route::get('/nosotros', [PageController::class, 'nosotros'])->name('nosotros');
