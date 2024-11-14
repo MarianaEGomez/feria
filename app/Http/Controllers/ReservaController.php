@@ -11,12 +11,22 @@ use App\Models\ReservationPlace;
 use App\Models\RubroVenta;
 use Illuminate\Support\Facades\Log;
 use App\Mail\ReservationStatusUpdated;
+use App\Models\RegistroPago;
+use App\Models\TipoDePago;
+use App\Services\MercadoPagoService;
 use Illuminate\Support\Facades\Mail;
 class ReservaController extends Controller
 {
+    private MercadoPagoService $MercadoPagoService;
+
+    public function __construct(MercadoPagoService $MercadoPagoService)
+    {
+        $this->MercadoPagoService = $MercadoPagoService;
+    }
+
     public function store(Request $request)
     {
-        Log::info('se recibeee', ['persona' => $request->all()]);
+        Log::info('Se recibe la reserva', ['persona' => $request->all()]);
     
         $request->validate([
             'name' => 'required|string|max:255',
@@ -26,8 +36,9 @@ class ReservaController extends Controller
             'telefono' => 'required|string|max:15',
             'rubro' => 'required|integer',
             'puesto_ids' => 'required|array',
+            'total_a_pagar' => 'required|numeric',  
         ]);
- 
+    
         $contacto = PersonaContacto::create([
             'email' => $request->input('email'),
             'telefono' => $request->input('telefono'),
@@ -40,34 +51,66 @@ class ReservaController extends Controller
             'persona_contacto_id' => $contacto->id,
         ]);
     
+        $registroPago = RegistroPago::create([
+            'total' => $request->input('total_a_pagar'),
+            'fecha' => now(),
+            'id_estado_pago' => 1, 
+        ]);
+
         foreach ($request->input('puesto_ids') as $puesto_id) {
             ReservationPlace::create([
                 'rubro_id' => $request->input('rubro'),
                 'puesto_id' => $puesto_id,
                 'persona_id' => $persona->id, 
+                'registro_pago_id' => $registroPago->id,
                 'approved' => 0,
             ]);
         }
+
+        $items = []; 
+        foreach ($request->input('puesto_ids') as $puesto_id) {
+            $items[] = [
+                'title' => 'Puesto ' . $puesto_id,
+                'quantity' => 1,
+                'unit_price' => $request->input('total_a_pagar') / count($request->input('puesto_ids')),
+            ];
+        }
+
+        $linkPago = $this->MercadoPagoService->crearPreferencia($request->input('total_a_pagar'), $items);
+
+        Log::info('Se ha guardado la persona y el pago', ['persona' => $persona, 'registroPago' => $registroPago]);
     
-        Log::info('Se ha guardado la persona', ['persona' => $persona]);
-    
-        return redirect()->route('reservas')->with('success', '¡Su reserva ha sido realizada con éxito! Por favor, aguarde la aprobación. Recibirá un correo electrónico confirmando la aprobación por parte del administrador una vez que se haya procesado.');
+        return redirect()->away($linkPago); 
     }
     
     public function getPlaces()
     {
-        $localidades = Localidad::with('eventos.sectoresEvento.puestosUbicacion')->get();
+        $localidades = Localidad::with('eventos.sectoresEvento.puestosUbicacion')->get(); 
         $puestos = [];
+        $puestosDisponibles = 0;
+        $sectores = [];
 
         foreach ($localidades as $localidad) {
             foreach ($localidad->eventos as $evento) {
                 foreach ($evento->sectoresEvento as $sector) {
+                    $sectores[] = (object)[
+                        'id' => $sector->id_sector_evento,
+                        'descripcion' => $sector->descripcion,
+                        'polygon' => $sector->polygon 
+                    ];
+                    
                     foreach ($sector->puestosUbicacion as $puesto) {
-
-                        $puestos[] = (object)[
-                            'id' => $puesto->id,
-                            'nombre' => $localidad->descripcion . ' - ' . $evento->descripcion . ' - ' . $sector->descripcion . ' - Puesto ' . $puesto->nro_puesto,
-                        ];
+                        if ($puesto->disponibilidad) {
+                            $puestosDisponibles++;
+                            
+                            $puestos[] = (object)[
+                                'id' => $puesto->id,
+                                'costo' => $puesto->costo,
+                                'disponibilidad' => $puesto->disponibilidad,
+                                'nombre' => $localidad->descripcion . ' - ' . $evento->descripcion . ' - ' . $sector->descripcion . ' - Puesto ' . $puesto->nro_puesto,
+                                'sector_id' => $sector->id_sector_evento 
+                            ];
+                        }
                     }
                 }
             }
@@ -75,9 +118,9 @@ class ReservaController extends Controller
 
         $rubros = RubroVenta::all();
 
-        return view('pages.reservas', compact('puestos', 'rubros'));
+        return view('pages.reservas', compact('puestos', 'rubros', 'puestosDisponibles', 'sectores'));
     }
-
+    
     public function approve($id)
     {
         $reservationPlace = ReservationPlace::findOrFail($id);
