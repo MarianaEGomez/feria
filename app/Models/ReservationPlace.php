@@ -13,7 +13,8 @@ class ReservationPlace extends Model
         'rubro_id',
         'puesto_id',
         'approved',
-        'persona_id', 
+        'persona_id',
+        'registro_pago_id', 
     ];
 
     public function rubro()

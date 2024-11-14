@@ -14,6 +14,7 @@
                 padding: 0;
                 height: 100%;
                 font-family: 'Figtree', sans-serif;
+                color: #ffffff;
             }
 
             .background-layer {
@@ -31,47 +32,121 @@
 
             .gradient-custom {
                 position: relative;
-                height: 100vh;
                 width: 100%;
                 display: flex;
+                flex-direction: column;
                 justify-content: center; 
                 align-items: center; 
                 color: white;
-                gap: 20px; 
+                text-align: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .title {
+                font-size: 5vw; /* Tamaño relativo a la pantalla */
+                line-height: 1.2;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .description {
+                font-size: 4vw; /* Tamaño relativo a la pantalla */
+                max-width: 90%; /* Hacer que el texto sea más flexible */
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+
+            .reserve-button {
+                font-size: 16px;
+                color: #fff;
+                background-color: #28a745;
+                border: none;
+                padding: 15px 30px;
+                border-radius: 8px;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+                font-weight: bold;
+            }
+
+            .reserve-button:hover {
+                background-color: #218838;
             }
 
             .logo-layer {
                 background-image: url('/logo_feria/mate_sin_fondo.png');
                 background-size: contain;
                 background-repeat: no-repeat;
-                height: 500px; 
-                width: 500px;
+                height: 25vw;
+                width: 25vw;
+                max-width: 400px;
+                max-height: 400px;
             }
 
-            .title {
-                font-size: 80px; 
-                line-height: 1.2;
-                text-align: left;
+            /* Media Query for Mobile Devices */
+            @media (max-width: 768px) {
+                .title {
+                    font-size: 8vw; /* Ajustar tamaño del título en pantallas pequeñas */
+                }
+
+                .description {
+                    font-size: 5vw; /* Ajustar tamaño de la descripción en pantallas pequeñas */
+                }
+
+                .reserve-button {
+                    font-size: 14px; /* Reducir tamaño del texto del botón */
+                    padding: 12px 25px; /* Ajustar padding */
+                }
+
+                .logo-layer {
+                    height: 35vw; /* Ajustar el tamaño de la imagen en pantallas pequeñas */
+                    width: 35vw;
+                }
+            }
+
+            /* Media Query for Extra Small Devices */
+            @media (max-width: 480px) {
+                .title {
+                    font-size: 10vw; /* Ajustar aún más el título en pantallas muy pequeñas */
+                }
+
+                .description {
+                    font-size: 6vw; /* Ajustar la descripción en pantallas muy pequeñas */
+                }
+
+                .reserve-button {
+                    font-size: 22px; /* Ajustar tamaño del texto del botón */
+                    padding: 10px 20px; /* Ajustar el padding */
+                }
+
+                .logo-layer {
+                    height: 45vw; /* Ajustar el tamaño de la imagen en dispositivos muy pequeños */
+                    width: 45vw;
+                }
             }
         </style>
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    @include('layouts.navbar')
-                </div>
-            </div>
-        </nav>
+
+        @include('layouts.navbar')
+
         <div class="background-layer"></div> 
 
         <div class="gradient-custom">
-            <div class="title">
-                Fiesta<br>en<br>la<br>Provincia
-            </div>
 
             <div class="logo-layer"></div>
+            <div class="title">
+                Fiesta en la Provincia
+            </div>
+
+            <div class="description">
+                ¡Bienvenidos a la celebración más grande de la provincia! Únete a nosotros para disfrutar de una experiencia inolvidable llena de cultura, música y sabores únicos. 
+                Reserva tu puesto y sé parte de esta increíble fiesta.
+            </div>
+
+            <a href="{{ route('reservas') }}" class="reserve-button">Reserva tu puesto ahora</a>
+
         </div>
     </body>
 </html>

@@ -4,7 +4,10 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\MapController;
+use App\Http\Controllers\PolygonController;
 
+Route::get('/map', [MapController::class, 'showMap'])->name('map');
 Route::get('/menu', [PageController::class, 'menu'])->name('menu');
 Route::get('/reservas', [ReservaController::class, 'getPlaces'])->name('reservas');
 Route::get('/nosotros', [PageController::class, 'nosotros'])->name('nosotros');
@@ -16,6 +19,10 @@ Route::post('/reservations/{id}/reject', [ReservaController::class, 'reject'])->
 
 Route::post('/post-reservas', [ReservaController::class, 'store'])->name('reservas_post');
 Route::post('/enviar-contacto', [ContactController::class, 'enviarContacto'])->name('enviar-contacto');
+
+Route::post('reservas/crear-preferencia', [ReservaController::class, 'createPaymentPreference'])->name('reservas.createPaymentPreference');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
