@@ -1,5 +1,7 @@
 <?php
 
+// app/Models/SectorEvento.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,5 +21,10 @@ class SectorEvento extends Model
     public function puestosUbicacion()
     {
         return $this->hasMany(PuestoUbicacion::class, 'id_sector_evento', 'id_sector_evento');
+    }
+
+    public function polygon()
+    {
+        return $this->belongsTo(Polygon::class, 'polygon_id');
     }
 }
