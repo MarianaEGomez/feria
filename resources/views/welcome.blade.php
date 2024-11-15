@@ -51,7 +51,7 @@
             }
 
             .description {
-                font-size: 4vw; /* Tamaño relativo a la pantalla */
+                font-size: 2vw; /* Tamaño relativo a la pantalla */
                 max-width: 90%; /* Hacer que el texto sea más flexible */
                 margin-bottom: 40px;
                 padding: 0 10px;
